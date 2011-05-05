@@ -1,5 +1,6 @@
 package bootstrap.liftweb
 
+import _root_.code.dispatcher.ImageDispatcher
 import net.liftweb._
 import util._
 import Helpers._
@@ -27,6 +28,9 @@ class Boot {
       // /static path to be visible
       Menu(Loc("Static", Link(List("static"), true, "/static/index"), 
 	       "Static Content")))
+
+    //Serve images
+    LiftRules.dispatch.append(ImageDispatcher.matcher)
 
     // set the sitemap.  Note if you don't want access control for
     // each page, just comment this line out.

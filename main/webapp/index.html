@@ -1,15 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head><meta content="text/html; charset=UTF-8" http-equiv="content-type" /><title>Home</title></head>
-  <body class="lift:content_id=main">
-    <div id="main" class="lift:surround?with=default;at=content">
-      <h2>Welcome to your project!</h2>
-      <p>
-	<span class="lift:helloWorld.howdy">
-	  Welcome to your Lift app at <span id="time">Time goes here</span>
-	</span>
-      </p>
-    </div>
-  </body>
-</html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="StyleSheet" href="/css/blackboard.css" type="text/css" />
+    <link rel="StyleSheet" href="/css/dark-hive/jquery-ui-1.8.12.custom.css" type="text/css" />
 
+    <link rel="stylesheet" href="/css/base.css"/>
+
+    <script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.8.12.custom.min.js"></script>
+    <script type="text/javascript" src="/js/json2.js"></script>
+    <script type="text/javascript" src="/js/jquery.blackboard.js"></script>
+    <script type="text/javascript" src="/js/jquery.mousestop.js"></script>
+</head>
+<body ondragstart="return false" draggable="false"
+      ondragenter="event.dataTransfer.dropEffect='none'; event.stopPropagation(); event.preventDefault();"
+      ondragover="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
+      ondrop="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();">
+
+<div id="container">
+
+    <div id="content">
+        <div id="content-container">
+            <div id="func" class="lift:comet?type=BlackBoard"></div>
+            <div id="clearbtn" class="lift:SBlackBoard.clearBtn"></div>
+            <div id="blackboard">
+            </div>
+            <div id="progressbar" style="width:300px; height:15px;"></div>
+        </div>
+    </div>
+
+</div> <!-- end of #container -->
+
+<script>
+    jQuery(document).ready(function($) {
+        init();
+    });
+</script>
+<div id="sc" class="lift:SBlackBoard.registerUpdateListenersScript"></div>
+</body>
+</html>
