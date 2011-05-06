@@ -39,6 +39,8 @@ object BlackBoardServer extends LiftActor with ListenerManager {
 
   private var action = new Object()
 
+  private var bbwidth = 360;
+  private var bbheight = 440;
   private var imgwidth = 40;
   private var imgheight = 40;
 
@@ -51,9 +53,11 @@ object BlackBoardServer extends LiftActor with ListenerManager {
   def createUpdate =  action
 
   def initImages(){
-     mainImage = ImageHelper.imageToBufferedImage(ImageHelper.transformGrayToTransparency(new BufferedImage(640, 320, BufferedImage.TYPE_INT_RGB)), 640, 320);
-    for (x <- 0 to 15){
-      for (y <- 0 to 7){
+     mainImage = ImageHelper.imageToBufferedImage(ImageHelper.transformGrayToTransparency(new BufferedImage(bbwidth, bbheight, BufferedImage.TYPE_INT_RGB)), bbwidth, bbheight);
+    val max_x = (bbwidth/imgwidth) - 1;
+    val max_y = (bbheight/imgheight) - 1;
+    for (x <- 0 to max_x){
+      for (y <- 0 to max_y){
         val bimage = mainImage.getSubimage(x * imgwidth, y * imgheight, imgwidth, imgheight);
         images(x + "_" + y) = bimage;
       }
@@ -109,7 +113,6 @@ object BlackBoardServer extends LiftActor with ListenerManager {
     }
   }
 
-  //TODO: dejar Images?
   def getImage(id: String): Box[BufferedImage] = {
     if(images.contains(id))
       Full(images(id));
