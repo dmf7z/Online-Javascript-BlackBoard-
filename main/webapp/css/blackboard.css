@@ -1,8 +1,8 @@
 	#blackboard{
 	    background-color: #000;
 	    position:relative;
-	    width: 640px;
-		height: 320px;
+	    width: 360px;
+		height: 440px;
 	}
     .simple {
         background-color: #f00;
@@ -11,7 +11,7 @@
         width: 3px;
         margin: 0;
         padding: 0;
-        position: absolute;        
+        position: absolute;
         z-index: 3;
     }
     .cursor {
